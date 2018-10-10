@@ -12,7 +12,14 @@ class mainViewController: UIViewController {
 
     
     @IBAction func gotoCreateAccount(_ sender: Any) {
-        performSegue(withIdentifier: "gotoCreate", sender: self)
+        performSegue(withIdentifier: "gotoCreate", sender: self);
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad();
+    }
+    
+    @IBAction func gotoView(_ sender: Any) {
+        performSegue(withIdentifier: "viewData", sender: self);
+    }
 }
