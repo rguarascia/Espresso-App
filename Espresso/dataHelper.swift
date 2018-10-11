@@ -17,7 +17,7 @@ class dataHelper: NSObject, URLSessionDataDelegate {
     
     var data = Data()
     
-    let urlPath: String = "localhost:3000/api/";
+    let urlPath: String = "http://espresso-testing-espresso.7e14.starter-us-west-2.openshiftapps.com/api/";
     
     func downloadItems() {
         let url: URL = URL(string: urlPath)!
@@ -34,58 +34,58 @@ class dataHelper: NSObject, URLSessionDataDelegate {
         }
         task.resume();
     }
-func parseJSON(_ data:Data) {
-    
-    var jsonResult = NSArray()
-    
-    do{
-        jsonResult = try JSONSerialization.jsonObject(with: data, options:JSONSerialization.ReadingOptions.allowFragments) as! NSArray
+    func parseJSON(_ data:Data) {
         
-    } catch let error as NSError {
-        print(error)
+        var jsonResult = NSArray()
         
-    }
-    
-    var jsonElement = NSDictionary()
-    let datas = NSMutableArray()
-    
-    for i in 0 ..< jsonResult.count
-    {
-        
-        jsonElement = jsonResult[i] as! NSDictionary
-        
-        let data = dataModel()
-        
-        //the following insures none of the JsonElement values are nil through optional binding
-        if let fname = jsonElement["fname"] as? String,
-            let lname = jsonElement["lname"] as? String,
-            let email = jsonElement["email"] as? String,
-            let username = jsonElement["username"] as? String,
-            let password = jsonElement["password"] as? String,
-            let company = jsonElement["company"] as? String,
-            let title = jsonElement["title"] as? String,
-            let url = jsonElement["url"] as? String
-        {
+        do{
+            jsonResult = try JSONSerialization.jsonObject(with: data, options:JSONSerialization.ReadingOptions.allowFragments) as! NSArray
             
-            data.fname = fname
-            data.lname = lname
-            data.email = email
-            data.username = username
-            data.password = password
-            data.company = company
-            data.title = title
-            data.url = url
+        } catch let error as NSError {
+            print(error)
             
         }
         
-        datas.add(data)
+        var jsonElement = NSDictionary()
+        let datas = NSMutableArray()
         
+        for i in 0 ..< jsonResult.count
+        {
+            
+            jsonElement = jsonResult[i] as! NSDictionary
+            
+            let data = dataModel()
+            
+            //the following insures none of the JsonElement values are nil through optional binding
+            if let fname = jsonElement["fname"] as? String,
+                let lname = jsonElement["lname"] as? String,
+                let email = jsonElement["email"] as? String,
+                let username = jsonElement["username"] as? String,
+                let password = jsonElement["password"] as? String,
+                let company = jsonElement["company"] as? String,
+                let title = jsonElement["title"] as? String,
+                let url = jsonElement["url"] as? String
+            {
+                
+                data.fname = fname
+                data.lname = lname
+                data.email = email
+                data.username = username
+                data.password = password
+                data.company = company
+                data.title = title
+                data.url = url
+                
+            }
+            
+            datas.add(data)
+            
+        }
+        
+        DispatchQueue.main.async(execute: { () -> Void in
+            
+            self.delegate.itemsDownloaded(items: datas)
+            
+        })
     }
-    
-    DispatchQueue.main.async(execute: { () -> Void in
-        
-        self.delegate.itemsDownloaded(items: datas)
-        
-    })
-}
 }

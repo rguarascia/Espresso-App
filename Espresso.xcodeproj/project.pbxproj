@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1A23841F216E5755004A5A1B /* viewDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewDataViewController.swift; sourceTree = "<group>"; };
+		1A23841F216E5755004A5A1B /* viewDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewDataViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
 		1A743775216D23D5000FD851 /* Espresso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Espresso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A743778216D23D5000FD851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A74377A216D23D5000FD851 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
