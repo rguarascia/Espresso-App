@@ -44,6 +44,9 @@
                                 <rect key="frame" x="165" y="436" width="44" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Log in"/>
+                                <connections>
+                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="On0-Kk-PNf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0p4-Ga-FOh">
                                 <rect key="frame" x="139" y="476" width="97" height="24"/>
@@ -70,6 +73,12 @@
                                     <segue destination="EfT-Te-JAe" kind="presentation" identifier="viewData" id="h3Y-zL-41t"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sa-n3-4uJ">
+                                <rect key="frame" x="166" y="518" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -82,6 +91,7 @@
                             <constraint firstItem="tC0-Xz-Ehj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="47" id="Kq1-d1-kUD"/>
                             <constraint firstItem="7Rz-QW-UT1" firstAttribute="top" secondItem="tC0-Xz-Ehj" secondAttribute="bottom" constant="94" id="Ks9-DC-9t0"/>
                             <constraint firstItem="0p4-Ga-FOh" firstAttribute="top" secondItem="n4Z-u9-J5J" secondAttribute="bottom" constant="8" symbolic="YES" id="LNt-nb-lGi"/>
+                            <constraint firstItem="2sa-n3-4uJ" firstAttribute="top" secondItem="0p4-Ga-FOh" secondAttribute="bottom" constant="18" id="Mn7-sj-vHG"/>
                             <constraint firstItem="7Rz-QW-UT1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="OFg-MO-uJA"/>
                             <constraint firstItem="nsc-fZ-epZ" firstAttribute="top" secondItem="ZUm-A8-bd8" secondAttribute="bottom" constant="11" id="QFv-US-412"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dcs-kO-eKu" secondAttribute="bottom" constant="9" id="TjW-oS-Jdl"/>
@@ -90,10 +100,16 @@
                             <constraint firstItem="nsc-fZ-epZ" firstAttribute="centerX" secondItem="n4Z-u9-J5J" secondAttribute="centerX" id="haJ-pd-FYh"/>
                             <constraint firstItem="ZUm-A8-bd8" firstAttribute="leading" secondItem="nsc-fZ-epZ" secondAttribute="leading" id="pah-L1-2tD"/>
                             <constraint firstItem="n4Z-u9-J5J" firstAttribute="centerX" secondItem="0p4-Ga-FOh" secondAttribute="centerX" id="ptD-ov-EfR"/>
+                            <constraint firstItem="2sa-n3-4uJ" firstAttribute="centerX" secondItem="0p4-Ga-FOh" secondAttribute="centerX" id="vcb-hg-qjJ"/>
                             <constraint firstItem="dcs-kO-eKu" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="wPu-sz-AnC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="errorLabel" destination="2sa-n3-4uJ" id="tH7-qc-xsI"/>
+                        <outlet property="password" destination="nsc-fZ-epZ" id="tgj-7Y-LSD"/>
+                        <outlet property="username" destination="ZUm-A8-bd8" id="CrO-HM-H4p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
