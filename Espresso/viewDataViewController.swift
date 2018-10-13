@@ -15,6 +15,9 @@ class viewDataViewController: UIViewController, UITableViewDataSource, UITableVi
     var feedItems: NSArray = NSArray();
     var selectedRow : dataModel = dataModel()
     
+    @IBAction func goBack(_ sender: Any) {
+        performSegue(withIdentifier: "backMain", sender: self);
+    }
     override func viewDidLoad() {
         super.viewDidLoad();
         self.listTableView.delegate = self

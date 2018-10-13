@@ -17,8 +17,8 @@ class dataHelper: NSObject, URLSessionDataDelegate {
     
     var data = Data()
     
-    let urlPath: String = "http://espresso-testing-espresso.7e14.starter-us-west-2.openshiftapps.com/api/";
-    
+    //let urlPath: String = "http://espresso-testing-espresso.7e14.starter-us-west-2.openshiftapps.com/api/";
+    let urlPath: String = "http://localhost:3000/api/";
     func downloadItems() {
         let url: URL = URL(string: urlPath)!
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
@@ -27,6 +27,7 @@ class dataHelper: NSObject, URLSessionDataDelegate {
             (data, response, error) in
             if error != nil {
                 print("Failed to get Data");
+                print(error.debugDescription);
             } else {
                 print("data downloaded");
                 self.parseJSON(data!);
